@@ -12,6 +12,11 @@ body {
     color: #1c1b26;
 }
 
+body.dark {
+    background: radial-gradient(circle at top, #141320 0%, #1c1b2b 45%, #101018 100%);
+    color: #f4f3fb;
+}
+
 nav {
     background-color: rgba(34, 32, 51, 0.94);
     backdrop-filter: blur(10px);
@@ -36,6 +41,50 @@ nav {
     border: 1px solid rgba(255, 255, 255, 0.6);
     background: var(--panel);
     backdrop-filter: blur(8px);
+}
+
+body.dark .section-card {
+    background: rgba(30, 28, 46, 0.88);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 40px rgba(8, 8, 14, 0.6);
+}
+
+body.dark .bg-light,
+body.dark .bg-body-tertiary {
+    background-color: rgba(30, 28, 46, 0.88) !important;
+    color: #f4f3fb;
+}
+
+body.dark .list-group-item {
+    background: rgba(44, 41, 63, 0.8);
+    color: #f4f3fb;
+}
+
+body.dark .card {
+    background: rgba(25, 23, 38, 0.9);
+}
+
+body.dark .card-body {
+    color: #f4f3fb;
+}
+
+body.dark .form-control {
+    background-color: rgba(18, 17, 26, 0.8);
+    color: #f4f3fb;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark .form-control::placeholder {
+    color: rgba(244, 243, 251, 0.6);
+}
+
+body.dark .btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #f4f3fb;
+}
+
+body.dark footer {
+    background: #0c0b14;
 }
 
 .card {

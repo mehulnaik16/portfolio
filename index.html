@@ -36,6 +36,10 @@
                     <a class="nav-link text-light" href="#contact">Contact</a>
                   </li>
                 </ul>
+                <button class="btn btn-outline-light ms-3" id="theme-toggle" type="button" aria-pressed="false">
+                  <i class="fa-solid fa-moon"></i>
+                  <span class="ms-1">Dark</span>
+                </button>
               </div>
             </div>
           </nav>
@@ -288,5 +292,35 @@
       <p>&copy; mehulnaik16</p>
   </div>
 </footer>
+<script>
+  const toggleButton = document.querySelector("#theme-toggle");
+  const toggleIcon = toggleButton.querySelector("i");
+  const toggleLabel = toggleButton.querySelector("span");
+
+  const applyTheme = (mode) => {
+    document.body.classList.toggle("dark", mode === "dark");
+    toggleButton.setAttribute("aria-pressed", mode === "dark");
+    if (mode === "dark") {
+      toggleIcon.classList.remove("fa-moon");
+      toggleIcon.classList.add("fa-sun");
+      toggleLabel.textContent = "Light";
+    } else {
+      toggleIcon.classList.remove("fa-sun");
+      toggleIcon.classList.add("fa-moon");
+      toggleLabel.textContent = "Dark";
+    }
+  };
+
+  const storedTheme = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const initialTheme = storedTheme || (prefersDark ? "dark" : "light");
+  applyTheme(initialTheme);
+
+  toggleButton.addEventListener("click", () => {
+    const nextTheme = document.body.classList.contains("dark") ? "light" : "dark";
+    localStorage.setItem("theme", nextTheme);
+    applyTheme(nextTheme);
+  });
+</script>
 </body>
 </html>
